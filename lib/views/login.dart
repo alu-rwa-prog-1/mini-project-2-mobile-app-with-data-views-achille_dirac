@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:smart_wallet/views/home.dart';
 import 'signup.dart';
 
 class LoginPage extends StatefulWidget {
@@ -75,7 +76,41 @@ class _LoginPageState extends State<LoginPage> {
           ),
           ElevatedButton(
             onPressed: () {
-              // Respond to button press
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Scaffold(
+                          body: HomePage() ,
+                          appBar: AppBar(
+                            backgroundColor: Colors.white,
+                            centerTitle: true,
+                            leading: const Text(''),
+                            title: const Text('Home',
+                             style: TextStyle(
+                               color: Colors.black,
+                               fontWeight: FontWeight.w500,
+                               letterSpacing: 2.0,
+                             ),),
+                          ),
+                        bottomNavigationBar: BottomNavigationBar(
+                          items: const [
+                            BottomNavigationBarItem(
+                                icon: Icon(Icons.home),
+                                label: 'Home',
+                            ),
+                            BottomNavigationBarItem(
+                              icon: Icon(Icons.grid_view_rounded),
+                              label: 'Menu',
+                            ),
+                            BottomNavigationBarItem(
+                              icon: Icon(Icons.compare_arrows_outlined),
+                              label: 'History',
+                            ),
+                          ],
+                        ),
+                      )
+                  )
+              );
             },
             child: Text('LOGIN'),
             style: TextButton.styleFrom(
